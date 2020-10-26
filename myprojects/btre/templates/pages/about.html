@@ -1,0 +1,110 @@
+{% extends "shared/layout.html" %}
+{% load static %}
+
+{% block content %}
+  
+
+
+    <div class="container-about">
+        <p>
+            <h1>
+                About BT Real Estate
+            </h1>
+        </p>
+
+      <p>
+          <b>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, dolore?
+          </b>
+      </p>
+    </div>
+
+    <div class="nav">
+        <div class="home-nav">
+            <p>
+                <a href="home.html"> Home</a> / <a href="#">About</a>
+            </p>
+        </div>
+        <div class="about-display">
+            <div class="perfect-home">
+                <p>
+                    We Search For The Perfect Home
+                </p>
+                <P>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti, maxime.
+                </P>
+    
+                <img src="{% static 'img/home-1-inside-a.jpeg' %}" alt="perfect home">
+    
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, placeat deleniti. Aut accusantium consequatur quisquam tempore soluta veritatis in eos ab, ullam a officiis molestias omnis qui, saepe architecto pariatur.
+                </p>
+            </div>
+            <div class="seller">
+                <img src="{% static 'img/home-3-inside-c.jpeg' %}" alt="seller of the month">
+                
+                <p>
+                    <h4> Seller of the month</h4>
+                    <h3>name</h3>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum at doloribus rerum! Dicta ratione quidem deleniti totam. Distinctio labore unde blanditiis earum pariatur libero, vero error animi, quis ducimus itaque!
+                </p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="work">
+        <p>
+          <h2>
+            We Work For You
+          </h2>
+
+          <p>
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, dolorum.
+          </p>
+          <p id="feature">view our Featured Listings</p>
+        </p>
+
+        
+    </div>
+
+    <div class="team">
+        <h2>
+            Our Team
+        </h2>
+        <div class="team-container">
+            <div class="team1">
+                <img src="{% static 'img/4.jpeg' %}" alt="team1">
+    
+                <p>NAME</p>
+                <P>Realtor</P>
+                <br>
+                <br>
+                <p>phone number</p>
+                <p>email address</p>
+            </div>
+            <div class="team1">
+                <img src="{% static 'img/house-back-1.jpeg' %}" alt="team1">
+    
+                <p>NAME</p>
+                <P>Realtor</P>
+                <br>
+                <br>
+                <p>phone number</p>
+                <p>email address</p>
+            </div>
+            <div class="team1">
+                <img src="{% static 'img/house-back-3.jpeg' %}" alt="team1">
+    
+                <p>NAME</p>
+                <P>Realtor</P>
+                <br>
+                <br>
+                <p>phone number</p>
+                <p>email address</p>
+            
+            </div>
+        </div>
+    </div>
+      
+    {% endblock content %}   
