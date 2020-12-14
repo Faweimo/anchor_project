@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Limited  
+        {% block title %}
+          
+        {% endblock title %}
+    </title>
+    {% block links %}
+      
+    {% endblock links %}
+</head>
+<body>
+    <!-- top bar  -->
+    {% include "partials/_topbar.html" %}
+    <!-- end top bar  -->
+    <!-- side bar  -->
+    {% include "partials/_sidebar.html" %}
+    <!-- end side bar  -->
+
+
+    {% block content %}
+      
+    {% endblock content %}
+
+    {% block scripts %}
+      
+    {% endblock scripts %}
+</body>
+</html>

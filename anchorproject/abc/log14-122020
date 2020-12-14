@@ -5,3 +5,17 @@ Database name:abc_staff
 user : ad_admin
 
 =========================
+
+
+superuser
+=========
+username: owolabi
+password:
+qwerty1345
+
+Startapp
+----------------
+Appname: staff
+models:
+1.  staff:
+    admin login with email

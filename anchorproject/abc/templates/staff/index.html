@@ -1,0 +1,193 @@
+{% extends "layout.html" %}
+{% load static %}
+
+
+{% block title %}
+  | staff attendance
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="{% static 'css/staff.css' %}"> 
+{% endblock links %}
+   
+</head>
+<body class="overlay-scrollbar">
+   
+  {% block content %}
+     
+     {% for staff in staffs  %}
+        <!-- main content  -->
+     <div class="wrapper">
+        <div class="user-display">
+             <div class="user-flip">
+                 <div class="user-flip-inner green">
+                 <div class="user-display">
+                     <div class="user-flip-front">
+                         <p>
+                             <h1>
+                                 <i class="fa fa-user"></i>
+                             </h1>
+                             <h2>
+                                 Welcome,
+                                     
+                             </h2>
+                         </p>
+                         <P>
+                             <H2>
+                                  {{ user.first_name}} 
+                                 
+                             </H2>
+                         </P>
+                     </div>
+                     <div class="user-flip-back" >
+                         <h1>
+                            {{ user.first_name}} {{ user.last_name}}
+                         </h1>
+                        
+                         <p>
+                             {{ staff.level }}
+                         </p>
+                     </div>
+                     
+                 </div>
+                 </div>
+             </div>
+             <div class="user-flip">
+                 <div class="user-flip-inner">
+                 <div class="user-display">
+                     <div class="user-flip-front1">
+                         <p>
+                             <h1>
+                                 <i class="fa fa-lock"></i>
+                             </h1>
+                             <h2>
+                                 Staff  ID:
+                             </h2>
+                         </p>
+                         <p>
+                             <h2>
+                                 {{ staff.staff_id }}
+                             </h2>
+                         </p>
+                     </div>
+                     <div class="user-flip-back1" >
+                        
+                       <h2>
+                        {{ staff.department }}
+                       </h2>
+                         
+                     </div>
+                     
+                 </div>
+                 </div>
+                 
+             </div>
+             <div class="user-flip">
+                 <div class="user-flip-inner">
+                    <div class="user-display">
+                     <div class="user-flip-front2">
+                         <p>
+                             <h1>
+                                 <i class="fa fa-sign-in"></i>
+                             </h1>
+                             <h2>
+                                You're sign in
+                               </h2>
+                         </p>
+                        </div>
+                        <div class="user-flip-back2" >
+                            <h1>
+                                Date joined
+                            </h1>
+                            <p>
+                               {{ user.date_joined }}
+                            </p>
+                            
+                        </div>
+                        
+                    </div>
+                 </div>
+             </div>
+             <div class="user-flip">
+                 <div class="user-flip-inner">
+                    <div class="user-display">
+                     <div class="user-flip-front3">
+                         <p>
+                             <h1>
+                                 <i class="fa fa-codepen"></i>
+                             </h1>
+                             <h2>
+                                 Logs
+                               </h2>
+                         </p>
+                        </div>
+                        <div class="user-flip-back3" >
+                            <h1>
+                                Daily Report
+                            </h1>
+                            <h1>
+                                Events
+                            </h1>
+                          <h1>
+                             Catalogue
+                          </h1>
+                        </div>
+                        
+                    </div>
+                 </div>
+             </div>
+        </div>
+     {% endfor %}
+    
+         
+        {% include "partials/_alerts.html" %}
+        <div class="box">
+         <h2>Work log</h2>
+         <form action="{% url 'logs' %}" method="POST" class="form-log">
+             {% csrf_token %}
+            {% if user.is_authenticated %}
+             <input type="hidden" name="user_id" value="{{ user.id }}">
+            {% else %} 
+             <input type="hidden" name="user_id" value="0">
+
+            {% endif %}
+             <div class="inputBox">
+                 <input type="text" required>
+                 <label >first name</label>
+             </div>
+             <div class="inputBox">
+                 <input type="text" required>
+                 <label >department</label>
+             </div>
+             <div class="inputBox">
+                 <input type="text" required >
+                 <label >team leader</label>
+             </div>
+             <div class="inputBox">
+                 <input type="text" required >
+                 <label >work from (hrs:mins)</label>
+             </div>
+             <div class="inputBox">
+                 <input type="text" required>
+                 <label >work-title</label>
+             </div>
+             <div class="inputBox">
+                 <input type="text" required >
+                 <label >work to (hrs:mins) </label>
+             </div>
+             <input type="submit" value="submit">
+             <!-- <input type="hidden" value="{{ staff_id }}"> -->
+          </form>
+     
+     </div>
+     </div>
+     <!-- end main content  -->
+ 
+  {% endblock content %}
+   {% block scripts %}
+   <script src="{% static 'js/staff.js' %}"></script>
+   {% endblock scripts %}
+    
+</body>
+</html>

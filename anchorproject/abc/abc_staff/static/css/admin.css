@@ -1,0 +1,94 @@
+#header{
+    height: 51px;
+    background: #2c3e50;
+   
+}
+branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #888;
+}
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: left;
+    background: #888;
+    color: #2c3e50;
+}
+
+a:link, a:visited {
+    color: #2c3e50;
+    text-decoration: none;
+}
+#content-related .module {
+    background: url('../img/14.jpg') no-repeat center/cover;
+}
+
+#content-related .module h2 {
+    background: none;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 18px;
+    color: #222222c3;
+}
+#content-related h3 {
+    font-size: 14px;
+    color: #333;
+    padding: 0 16px;
+    margin: 0 0 16px;
+}
+
+.quiet, a.quiet:link, a.quiet:visited {
+    color: #333;
+    font-weight: normal;
+}
+
+div.breadcrumbs {
+    background: #888;
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    color: #2c3e50;
+    text-align: left;
+}
+
+#changelist #toolbar form #searchbar {
+    height: 19px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin: 0;
+    vertical-align: top;
+    font-size: 13px;
+}
+
+
+
+#changelist-filter {
+   
+    background: #2C3E50;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: rgba(26, 40, 83, 0.689);
+    
+    border-radius: 5px;
+    color: #fff;
+    
+}
+
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    
+    background: #2c3e50;
+}
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], input[type=tel], textarea, select, .vTextField {
+    border: 1px solid #888;
+    border-radius: 10px;
+}
+
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #888;
+}
