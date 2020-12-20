@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% load static %}
-
+<!-- {% load tz %}
+{% get_current_timezone as TIME_ZONE %} -->
 
 {% block title %}
   | staff attendance
@@ -16,13 +17,22 @@
    
   {% block content %}
      
-     {% for staff in staffs  %}
+     
         <!-- main content  -->
      <div class="wrapper">
+        
+          
+       
+        
+    {% if user.is_authenticated %}
+           
+         
+    
         <div class="user-display">
              <div class="user-flip">
                  <div class="user-flip-inner green">
                  <div class="user-display">
+                    
                      <div class="user-flip-front">
                          <p>
                              <h1>
@@ -61,15 +71,30 @@
                              <h1>
                                  <i class="fa fa-lock"></i>
                              </h1>
-                             <h2>
-                                 Staff  ID:
-                             </h2>
-                         </p>
-                         <p>
-                             <h2>
-                                 {{ staff.staff_id }}
-                             </h2>
-                         </p>
+                           
+                           
+                           <h2>
+                            Staff  ID:
+                        </h2>
+                    </p>
+                    {% if staff == pk %}
+                       
+                            
+                              
+                           
+                        
+                    
+                    <p>
+                        <h2>
+                            {{ staff.staff_id }}
+                        </h2>
+                    </p>
+                   
+                    
+                    {% endif %}
+                   
+
+                          
                      </div>
                      <div class="user-flip-back1" >
                         
@@ -98,7 +123,7 @@
                         </div>
                         <div class="user-flip-back2" >
                             <h1>
-                                Date joined
+                                Date joined:
                             </h1>
                             <p>
                                {{ user.date_joined }}
@@ -118,7 +143,7 @@
                                  <i class="fa fa-codepen"></i>
                              </h1>
                              <h2>
-                                 Logs
+                                Logs
                                </h2>
                          </p>
                         </div>
@@ -138,47 +163,56 @@
                  </div>
              </div>
         </div>
-     {% endfor %}
-    
+    {% endif %}    
          
+    
+       
         {% include "partials/_alerts.html" %}
         <div class="box">
-         <h2>Work log</h2>
-         <form action="{% url 'logs' %}" method="POST" class="form-log">
-             {% csrf_token %}
-            {% if user.is_authenticated %}
-             <input type="hidden" name="user_id" value="{{ user.id }}">
-            {% else %} 
-             <input type="hidden" name="user_id" value="0">
+         <h2>Work Logs</h2>
+        <form action="{% url 'attendance' %}" method="POST" class="form-log">
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <!-- <input type="hidden"  value="{{ attendance.attendance_id }}">  -->
+                {% else %} 
+                <input type="hidden" name="user_id" value="0">
 
-            {% endif %}
-             <div class="inputBox">
-                 <input type="text" required>
-                 <label >first name</label>
-             </div>
-             <div class="inputBox">
-                 <input type="text" required>
-                 <label >department</label>
-             </div>
-             <div class="inputBox">
-                 <input type="text" required >
-                 <label >team leader</label>
-             </div>
-             <div class="inputBox">
-                 <input type="text" required >
-                 <label >work from (hrs:mins)</label>
-             </div>
-             <div class="inputBox">
-                 <input type="text" required>
-                 <label >work-title</label>
-             </div>
-             <div class="inputBox">
-                 <input type="text" required >
-                 <label >work to (hrs:mins) </label>
-             </div>
-             <input type="submit" value="submit">
-             <!-- <input type="hidden" value="{{ staff_id }}"> -->
-          </form>
+                {% endif %}
+                <input type="hidden" name="clock_in" value="{{ clock_in }}">
+                <div class="inputBox">
+                    <input type="text" name="name" {% if user.is_authenticated %}
+                    value="{{ user.first_name }} {{ user.last_name }}"
+                {% endif %} required>
+                    <label >name</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="email" name="email" value="{{ user.email }}" required >
+                    <label >email</label>
+                </div>
+
+                <div class="inputBox">      
+                  
+                
+                    <input type="hidden" name="department" value="{{ staff.department }}" required>
+                    <label ></label>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="team_leader" required >
+                    <label >team leader</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="work_title" required>
+                    <label >work-title</label>
+                </div>
+               
+                
+                <input type="submit" value="submit">
+                <!-- <input type="hidden" value="{{ staff_id }}"> -->
+        </form>
      
      </div>
      </div>

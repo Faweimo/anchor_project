@@ -92,3 +92,6 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 #branding h1, #branding h1 a:link, #branding h1 a:visited {
     color: #888;
 }
+.content{
+    background: url('../img/14.jpg') no-repeat center/cover;
+}

@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li class="sidebar-nav-item">
-                <a href="/index.html" class="sidebar-nav-link">
+                <a href="#" class="sidebar-nav-link">
                     <div>
                         <i class="fa fa-home" ></i>
                     </div>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="sidebar-nav-item">
-                <a href="/about.html" class="sidebar-nav-link">
+                <a href="#" class="sidebar-nav-link">
                     <div>
                         <i class="fa fa-tasks"></i>
                     </div>
@@ -52,16 +52,30 @@
                     </span>
                 </a>
             </li>
-            <li class="sidebar-nav-item">
-                <a href="#" class="sidebar-nav-link">
-                    <div>
-                        <i class="fa fa-plus-square"></i>
-                    </div>
-                    <span>
-                        Admin
-                    </span>
+          
+                <a href="{% url 'logout' %}" class="sidebar-nav-link">
+                   
+                   
                 </a>
             </li>
-        </ul>
+            {% if user.is_authenticated %}
+
+           <li class="sidebar-nav-item">
+              <a href="javascript:{document.getElementById('logout').submit()}" class="sidebar-nav-link">
+                     <div>
+                        <i class="fa fa-sign-out"></i>
+                    </div>
+                  <span>
+                        Log out 
+                    </span>
+              </a>
+              <form action="{% url 'logout' %}" method="POST" id="logout">
+                  {% csrf_token %}
+                    <input type="hidden">
+              </form>
+          </li>
+        {% endif %}
+       
+       </ul>
     </div>
     <!-- End Sidebar -->

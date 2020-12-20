@@ -32,7 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'logs.apps.LogsConfig',
+    'accounts.apps.AccountsConfig',
+    'attendances.apps.AttendancesConfig',
     'staff.apps.StaffConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -143,3 +144,14 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS ={
     messages.ERROR:'danger'
 }
+
+
+# LOGIN_REDIRECT_URL = 'staff'
+# LOGOUT_REDIRECT_URL = 'login'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'syllabus28@gmail.com'
+EMAIL_HOST_PASSWORD = 'syllabus28'
+EMAIL_USE_TLS = True

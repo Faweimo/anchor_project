@@ -97,3 +97,18 @@ h2 {
     top: 11%;
 
 }
+
+
+#message {
+
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    background: #f05454;
+    border-radius: 8px;
+    padding: 6px;
+    color: #fff;
+    width: 30%;
+    text-align: center;
+
+}

@@ -1,0 +1,29 @@
+{% extends "layout2.html" %}
+{% load static %}
+
+{% block title %}
+  | Login
+{% endblock title %}
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock links %}
+
+{% block content %}
+{% include "partials/_alerts.html" %}
+<div class="box">
+    <img src="{% static 'img/abc.png' %}" alt="logo">
+    <h2>Log in</h2>
+    <form action="{% url 'login' %}" method="POST" class="form-log">
+        {% csrf_token %}
+        
+        <div class="inputBox">
+            <input type="text" name="staff_id"  required>
+            <label >staff ID</label>
+        </div> 
+        
+       
+        <input type="submit" name="submit" value="login">
+     </form>
+
+</div>
+{% endblock content %}  

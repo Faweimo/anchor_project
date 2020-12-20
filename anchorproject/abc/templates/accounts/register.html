@@ -1,0 +1,36 @@
+{% extends "layout2.html" %}
+{% load static %}
+
+{% block title %}
+  | Login
+{% endblock title %}
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock links %}
+
+{% block content %}
+{% include "partials/_alerts.html" %}
+<div class="box">
+    <img src="{% static 'img/abc.png' %}" alt="logo">
+    <h2></h2>
+    <form action="{% url 'signup' %}" method="POST" class="form-log">
+         {% csrf_token %}
+         {{ form.as_p }}
+          Staff ID:{{ form.email }}
+         
+         
+        <!-- <div class="inputBox">
+          <input type="text" name="staff_id" required>
+            <label >staff_id</label>
+        </div> 
+        
+        <div class="inputBox">
+            <input type="text" name="username" required>
+            <label >first name</label>
+        </div>  
+        -->
+        <input type="submit" value="sign up">
+     </form>
+
+</div>
+{% endblock content %}
