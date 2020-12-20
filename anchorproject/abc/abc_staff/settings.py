@@ -146,8 +146,8 @@ MESSAGE_TAGS ={
 }
 
 
-# LOGIN_REDIRECT_URL = 'staff'
-# LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = 'staff'
+LOGOUT_REDIRECT_URL = 'login'
 
 
 EMAIL_HOST = 'smtp.gmail.com'
