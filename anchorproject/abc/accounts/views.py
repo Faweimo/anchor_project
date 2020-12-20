@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-# from django import forms
-# from .forms import LoginForm
+from django import forms
+from .forms import LoginForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages, auth
 from staff.models import Staff_profile
 # from django.contrib.auth import login
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def register(request):
@@ -52,7 +54,10 @@ def register(request):
 
         return render(request, 'accounts/register.html')
 
-
+class Login(LoginRequiredMixin,TemplateView):
+    template_name = 'registration/login.html'
+    authentication_form = LoginForm
+    name = 'login'
 def logins(request):
     
     if request.method == 'POST':
@@ -79,7 +84,7 @@ def logins(request):
 
     else:
      
-        return render(request, 'accounts/login.html')
+        return render(request, 'registration/login.html')
 
 
 def logouts(request):
