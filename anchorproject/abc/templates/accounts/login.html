@@ -17,13 +17,25 @@
         {% csrf_token %}
         
         <div class="inputBox">
-            <input type="text" name="staff_id"  required>
-            <label >staff ID</label>
+            <input type="text" name="username"  required>
+            <label >Username</label>
+        </div> 
+          <div class="inputBox">
+            <input type="password" name="password1"  required>
+            <label >Password</label>
         </div> 
         
        
         <input type="submit" name="submit" value="login">
      </form>
+     
+     <div class="inputBox">
+      <p>
+        forget password? <a href="{% url 'password_reset' %">
+          reset here
+        </a>
+      </p>
+  </div> 
 
 </div>
 {% endblock content %}  

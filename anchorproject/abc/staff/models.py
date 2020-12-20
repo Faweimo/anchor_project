@@ -7,8 +7,8 @@ from .utils import staff_new_id
 
 
 class Staff_profile(models.Model):
-    id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
+    # id = models.IntegerField(primary_key=True)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,blank=True,null=True)
     staff_id = models.CharField(max_length=10,default=staff_new_id(),editable=True,null=True,blank=True)
     department = models.CharField(max_length=100,blank=False,null=False,default='worker')    
     display_pics = models.ImageField(default='avatar.png', null= True,blank= True,upload_to='profile pics')

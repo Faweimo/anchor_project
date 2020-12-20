@@ -79,3 +79,10 @@ class Work_log(models.Model):
         return self.team_leader
 
 
+
+
+
+User created
+
+username: python13
+password: python1345
