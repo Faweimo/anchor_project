@@ -6,7 +6,7 @@ from .utils import staff_new_id
 
 
 
-class Staff_profile(models.Model):
+class StaffProfile(models.Model):
     # id = models.IntegerField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,blank=True,null=True)
     staff_id = models.CharField(max_length=10,default=staff_new_id(),editable=True,null=True,blank=True)
@@ -16,4 +16,4 @@ class Staff_profile(models.Model):
 
     
     def __str__(self):
-        return str(self.user)
+        return self.user.first_name

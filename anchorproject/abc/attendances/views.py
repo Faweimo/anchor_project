@@ -1,29 +1,29 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .models import Attendance
-from staff.models import Staff_profile
+from staff.models import StaffProfile
 from django.core.mail import send_mail
-from staff.models import Staff_profile
+from staff.models import StaffProfile
 
 
 def attendances(request):
     if request.method == 'POST':
         name = request.POST['name']
-        department = request.POST['department']
+     
         team_leader = request.POST['team_leader']
         # attendance_id = request.POST['attendance_id']
         work_title = request.POST['work_title']
         clock_in = request.POST['clock_in']
         email = request.POST['email']
 
-        if request.user.is_authenticated:
-            user_id = request.user.id
-            has_messaged = Attendance.objects.all().filter(clock_in=clock_in,name=name)
-            if has_messaged:
-                messages.error(request,'You are already marked present')
-                return redirect('staff')
+        # if request.user.is_authenticated:
+        #     user_id = request.user.id
+        #     has_messaged = Attendance.objects.all().filter(clock_in=clock_in,name=name)
+        #     if has_messaged:
+        #         messages.error(request,'You are already marked present')
+        #         return redirect('staff')
 
-        attendance = Attendance(name=name,department=department,team_leader=team_leader,work_title=work_title,email=email)
+        attendance = Attendance(name=name,team_leader=team_leader,work_title=work_title,email=email)
 
         attendance.save()
 

@@ -17,8 +17,7 @@
         {% csrf_token %}
         
         <div class="inputBox">
-            <input type="text" name="username"  required>
-            <label >Username</label>
+           {{ staff_form.as_ul }}
         </div> 
           <div class="inputBox">
             <input type="password" name="password1"  required>

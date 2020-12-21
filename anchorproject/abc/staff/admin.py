@@ -10,4 +10,4 @@ class StaffAdmin(admin.ModelAdmin):
     list_filter = ('department',)
     list_per_page = 25
 
-admin.site.register(Staff_profile,StaffAdmin)
+admin.site.register(StaffProfile,StaffAdmin)

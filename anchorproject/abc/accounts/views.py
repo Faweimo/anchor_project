@@ -4,7 +4,7 @@ from django import forms
 from .forms import LoginForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages, auth
-from staff.models import Staff_profile
+from staff.models import StaffProfile
 # from django.contrib.auth import login
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,9 +19,9 @@ def register(request):
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-        # staff = Staff_profile(staff_id)
+        # staff = StaffProfiles(staff_id)
         # staff.save()
-        # staff = Staff_profile.objects.filter(staff_id=staff_id)
+        # staff = StaffProfiles.objects.filter(staff_id=staff_id)
         # messages.error(request,'eyehhh')
         if password1 == password2:
             #    Check username 
@@ -62,17 +62,19 @@ def logins(request):
     
     if request.method == 'POST':
        
-        username = request.POST['username']
+        staff_form = LoginForm(request.POST)
         # staff_id = request.POST['staff_id']
         password = request.POST['password1']
         
-        # staff = Staff_profile(staff_id)
+        # staff = StaffProfiles(staff_id)
         
         
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(staff_form=staff_form, password=password)
 
         if user is not None:
-            
+            profile = staff_form.save(commit=False)
+            profile.user = user
+            profile.save()
             auth.login(request,user)
             messages.success(request, 'You are now logged in')
             return redirect('staff')
@@ -83,8 +85,11 @@ def logins(request):
             return redirect('login')
 
     else:
-     
-        return render(request, 'registration/login.html')
+        staff_form = LoginForm()
+        context = {
+            'staff_form':staff_form
+        }
+        return render(request, 'registration/login.html', context)
 
 
 def logouts(request):
