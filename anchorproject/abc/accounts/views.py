@@ -52,7 +52,7 @@ def register(request):
 
     else:
 
-        return render(request, 'accounts/register.html')
+        return render(request, 'registration/register.html')
 
 class Login(LoginRequiredMixin,TemplateView):
     template_name = 'registration/login.html'
