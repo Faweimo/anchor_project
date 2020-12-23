@@ -63,3 +63,8 @@ function search(e) {
     })
     
 }
+
+
+setTimeout(function(){
+    $('#message'),fadeOut
+}, 3000);

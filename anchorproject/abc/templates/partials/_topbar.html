@@ -71,7 +71,10 @@
                 </li>
                 <li class="nav-item">
                     <div class="avt dropdown">
-                        <img src="{{ staff.display_pics.url }}" alt="user image" class="dropdown-toggle" data-toggle="user-menu"> 
+                        {% if user.is_authenticated %}
+                        <img src="{{ user.staffprofile.display_pics.url }}" alt="user image" class="dropdown-toggle" data-toggle="user-menu"> 
+                        {% endif %}
+                       
                         <ul id="user-menu" class="dropdown-menu">
                             <li class="dropdown-menu-item">
                                 <a href="#" class="dropdown-menu-link">

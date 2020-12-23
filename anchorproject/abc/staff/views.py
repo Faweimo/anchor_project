@@ -7,10 +7,10 @@ from django.contrib import messages, auth
 def staff(request):
     
     
-    # staff = get_object_or_404(StaffProfile, pk = True)        
-    # context = {
-    #     'staff':staff            
-    # }
-    return render (request,'staff/index.html')
+    staff = get_object_or_404(StaffProfile, pk =True)        
+    context = {
+        'staff':staff            
+    }
+    return render (request,'staff/index.html',context)
 
    

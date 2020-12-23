@@ -32,8 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'worklogs.apps.WorklogsConfig',
+
     'accounts.apps.AccountsConfig',
-    'attendances.apps.AttendancesConfig',
+   
     'staff.apps.StaffConfig',
     'django.contrib.admin',
     'django.contrib.auth',

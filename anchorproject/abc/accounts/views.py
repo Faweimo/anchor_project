@@ -1,95 +1,51 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django import forms
-from .forms import LoginForm
-# from django.contrib.auth.forms import UserCreationForm
+from .forms import LoginForm, UserNewForm, ExtendUserForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages, auth
 from staff.models import StaffProfile
-# from django.contrib.auth import login
+from django.contrib.auth import authenticate,login
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-def register(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        first_name = request.POST['first_name']
-      
-        # staff_id = request.POST['staff_id']
-        email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
-        # staff = StaffProfiles(staff_id)
-        # staff.save()
-        # staff = StaffProfiles.objects.filter(staff_id=staff_id)
-        # messages.error(request,'eyehhh')
-        if password1 == password2:
-            #    Check username 
-                if User.objects.filter(username=username).exists():
-                    messages.error(request, 'That username is taken')
-                    return redirect('signup')
-                else:
-                    if User.objects.filter(email=email).exists():
-                        messages.error(request, 'That email is being used')
-                        return redirect('signup')
-
-                    else:
-                        # looks good    
-                        user = User.objects.create_user(username=username, password=password1, email=email, first_name=first_name)
 
 
-                        # Login after signup 
-                        # auth.login(request, user)
-                        # messages.success(request, 'You are now logged in')
-                        # return redirect('index')
-
-                        user.save()
-                        messages.success(request, 'You are now registered and can log in')
-                        return redirect('login')
-        else:
-            messages.error(request, 'Passwords do not match')    
-            return redirect('signup')
-
-    else:
-
-        return render(request, 'registration/register.html')
-
-class Login(LoginRequiredMixin,TemplateView):
-    template_name = 'registration/login.html'
-    authentication_form = LoginForm
-    name = 'login'
 def logins(request):
     
     if request.method == 'POST':
        
         staff_form = LoginForm(request.POST)
-        # staff_id = request.POST['staff_id']
+        username = request.POST['username']
         password = request.POST['password1']
         
-        # staff = StaffProfiles(staff_id)
         
         
-        user = auth.authenticate(staff_form=staff_form, password=password)
+        
+        user = auth.authenticate(staff_form=staff_form,username=username, password=password)
 
         if user is not None:
-            profile = staff_form.save(commit=False)
-            profile.user = user
-            profile.save()
+            
             auth.login(request,user)
             messages.success(request, 'You are now logged in')
             return redirect('staff')
 
 
         else:
+            
+
             messages.error(request,'Invalid staff ID and password')
             return redirect('login')
 
+        
     else:
         staff_form = LoginForm()
         context = {
             'staff_form':staff_form
-        }
-        return render(request, 'registration/login.html', context)
+        }    
+  
+    return render(request, 'registration/login.html',context)
 
 
 def logouts(request):
@@ -97,82 +53,3 @@ def logouts(request):
         auth.logout(request)
         messages.success(request, 'You are logged out')
         return redirect('login')    
-
-
-
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/')
-#     else:
-#         # print(form.errors)    
-#         # messages.error(request, messages=form.errors)
-#         form = UserCreationForm() 
-
-#     context = {
-#         'form':form
-#     }
-       
-
-
-   
-
-#     return render(request, 'accounts/register.html', context)
-
-    
-
-
-
-
-
-# def logins(request):
-
-    
-    
-#     if request.method == 'POST':
-        
-#         staff_id = request.POST['staff_id']     
-
-#         user = auth.authenticate(request.POST,staff_id=staff_id)
-
-        
-
-#         if user is not None:
-#             messages.error(request,'Invalid credentials')
-#             return redirect ('login')
-            
-
-#         else:
-#             login( request,user, backend='django.contrib.auth.backends.ModelBackend')
-#             messages.success(request, 'You are now logged in')
-#             return redirect('staff')
-
-
-#     else:
-#         return render (request, 'accounts/login.html')       
-
-
-# def logins(request):
-#     if request.method == 'POST':
-#         form = LoginForm(data=request.POST) 
-#         if form.is_valid:
-#             user = form.get_user()
-#             login(request, user)    
-#             return redirect('index')
-#     else: 
-#         form = LoginForm() 
-#     return render(request, 'accounts/login.html', {'form':form})
-
-
-# def logouts(request):
-#     if request.method == 'POST':
-#         auth.logout(request)
-#         messages.success(request,'You are now logged out')
-#         return redirect('login')
-
-#     else:
-#         return render(request, 'accounts/login.html')    
-        

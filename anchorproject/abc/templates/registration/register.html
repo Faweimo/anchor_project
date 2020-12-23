@@ -17,29 +17,35 @@
          {% csrf_token %}
         
           <div class="inputBox">
-            <input type="text"  name="first_name">
+            
+            {{ form.first_name }}
             <label for="first_name"> first_name</label>
+
          </div>
     
           <div class="inputBox">
-            <input type="text"  name="email">
+            {{ form.email }}
+           
             <label for="email"> email</label>
           </div>
           <div class="inputBox">
-            <input type="text" name="username" >
+           
+            {{ form.username }}
             <label for="username"> Username</label>
           </div>
           <div class="inputBox">
-            <input type="text" name="staff_id">
-            <label for="password"> Staff ID</label>
+            {{ profile_form.staff_id }}
+            <label > Staff ID</label>
           </div>
       
           <div class="inputBox">
-            <input type="password" name="password1">
+            
+            {{ form.password1 }}
             <label for="password"> Password</label>
           </div>
           <div class="inputBox">
-            <input type="password"  name="password2">
+            
+            {{ form.password2 }}
             <label for="confirm"> confirm password</label>
           </div>
           <input name="submit" type="submit" value="submit">
