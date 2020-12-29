@@ -444,7 +444,7 @@ form {
     padding: 0;
     font-family: sans-serif;
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 52%;
     transform: translate(-50%,-50%);
     width: 400px;
@@ -544,7 +544,14 @@ form {
         margin-right: -8px;
         grid-gap: 17px;
     }
+    .box {
+        top: 131%;
+        left: 58%;
+        width: 507px;
+    }
 }
+ 
+
 @media(max-width:600px) {
     .user-display{
         display: block;
@@ -567,7 +574,14 @@ form {
     .navbar-search-input{
         width: auto;
     }
-}
+    .box {
+        top: 131%;
+        left: 68%;
+        width: 491px;
+    }
+
+}    
+   
 @media(max-width:800px) {
     .user-display{
         display: block;
@@ -575,6 +589,11 @@ form {
     .dropdown-menu{
         top: 142%;
         right: 4%;
+    }
+    .box{
+        top: 133%;
+        width: 519px;
+        left: 51%;
     }
 }
 @media(max-width:900px) {
@@ -586,8 +605,9 @@ form {
         margin-left: 40px;
     }
     .box{
-        top: 125%;   
-        left: 65%;   
+        top: 131%;   
+        left: 47%;   
+        width: 527px;
     }
 }
 

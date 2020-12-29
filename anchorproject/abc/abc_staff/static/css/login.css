@@ -112,3 +112,7 @@ h2 {
     text-align: center;
 
 }
+
+#message .success{
+    background: rgb(107, 234, 107);
+}

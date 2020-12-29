@@ -33,7 +33,7 @@ function openclose(event) {
 
 let bars = document.querySelector('ul li i');
 let body = document.querySelector('body')
-bars.addEventListener('mousedown',collapse,false);
+bars.addEventListener('click',collapse,false);
 function collapse(e) {
     e.preventDefault();
   
@@ -66,5 +66,5 @@ function search(e) {
 
 
 setTimeout(function(){
-    $('#message'),fadeOut
+    $('#message'),fadeOut('slow')
 }, 3000);

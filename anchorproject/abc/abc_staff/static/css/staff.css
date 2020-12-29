@@ -444,7 +444,7 @@ form {
     padding: 0;
     font-family: sans-serif;
     position: absolute;
-    top: 65%;
+    top: 71%;
     left: 52%;
     transform: translate(-50%,-50%);
     width: 400px;
@@ -453,7 +453,7 @@ form {
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.5);
     border-radius: 10px;
-    width: 55%;
+    /* width: 55%; */
 }
 
 .box h2{
@@ -529,22 +529,14 @@ form {
     text-align: center;
 
 }
-
-@media(max-width:700px) {
-    .user-display{
-        display: block;
-    }
-    .dropdown-menu{
-        top: 142%;
-        right: 4%;
-    }
-    .nav-right{
-       
-        margin-left: auto;
-        margin-right: -8px;
-        grid-gap: 17px;
-    }
+form{
+    display: none;
 }
+.nav-right {
+    display: none;
+}
+
+
 @media(max-width:600px) {
     .user-display{
         display: block;
@@ -567,7 +559,47 @@ form {
     .navbar-search-input{
         width: auto;
     }
+    .box {
+        
+            top: 136%;
+            left: 67%;;
+        
+    }
+    #message{
+        left: 55%;
+    }
+
+}    
+
+
+@media(max-width:700px) {
+    .user-display{
+        display: block;
+    }
+    .dropdown-menu{
+        top: 142%;
+        right: 4%;
+    }
+    .nav-right{
+       
+        margin-left: auto;
+        margin-right: -8px;
+        grid-gap: 17px;
+    }
+    .box {
+        top: 131%;
+        left: 58%;
+        width: 507px;
+    }
+    #message{
+        left: 41%;
+    }
+    .box{
+        left: 59%;
+    }
 }
+ 
+   
 @media(max-width:800px) {
     .user-display{
         display: block;
@@ -575,6 +607,14 @@ form {
     .dropdown-menu{
         top: 142%;
         right: 4%;
+    }
+    .box {
+        top: 136%;
+        left: 51%;
+        width: 500px;
+    }
+    #message{
+        left: 35%;
     }
 }
 @media(max-width:900px) {
@@ -586,8 +626,13 @@ form {
         margin-left: 40px;
     }
     .box{
-        top: 125%;   
-        left: 65%;   
+        top: 134%;
+        left: 45%;
+        width: 500px;
+    }
+    #message{
+        top: 96%;
+        left: 29%;
     }
 }
 

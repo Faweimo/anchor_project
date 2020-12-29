@@ -10,7 +10,7 @@
                     
                 </li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">
+                    <a href="#" class="nav-link">
                         <img src="{% static 'img/abc.png' %}" alt="abc logo" class="logo"> 
                         
                     </a> 
@@ -29,7 +29,7 @@
                 <li class="nav-item dropdown">
                     <a href="" class="nav-link">
                         <i class="fa fa-bell dropdown-toggle" data-toggle="notification-menu"></i>
-                        <span class="navbar-badge">15</span>
+                        <span class="navbar-badge">0</span>
                     </a>
                     <ul id="notification-menu" class="dropdown-menu notification-menu">
                         <div class="dropdown-menu-header">
@@ -71,9 +71,9 @@
                 </li>
                 <li class="nav-item">
                     <div class="avt dropdown">
-                        {% if user.is_authenticated %}
-                        <img src="{{ user.staffprofile.display_pics.url }}" alt="user image" class="dropdown-toggle" data-toggle="user-menu"> 
-                        {% endif %}
+                       
+                        <img src="{{ user.staffprofile.display_pics.url }}" alt="" class="dropdown-toggle" data-toggle="user-menu"> 
+                        
                        
                         <ul id="user-menu" class="dropdown-menu">
                             <li class="dropdown-menu-item">

@@ -175,43 +175,44 @@
 
                 {% if user.is_authenticated %}
 
-                <input type="hidden" name="user_id" value="{{ user.id }}">
+                <input type="hidden"  name="user_id" value="{{ user.id }}">
                
                 {% else %} 
                 <input type="hidden" name="user_id" value="0">
 
                 {% endif %}
                 <input type="hidden" name="clock_in" value="{{ clock_in }}">
+                <input type="hidden" name="work_id" value="{{ work_id }}">
                 <div class="inputBox">
                     <input type="text" name="full_name"
                     value="{{ user.first_name }} {{ user.last_name }}"
                required>
-                    <label >name</label>
+                    <label for="full_name" >name</label>
                 </div>
 
                 <div class="inputBox">
                     <input type="email" name="email" value="{{ user.email }}" required >
-                    <label >email</label>
+                    <label for="email">email</label>
                 </div>
 
                 <div class="inputBox">      
                   
                 
                     <input type="text" name="department" value="{{ user.staffprofile.department }}" required>
-                    <label >department</label>
+                    <label for="department">department</label>
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="team_leader" required >
-                    <label >team leader</label>
+                    <input type="text" name="team_leader" value="{{ form.team_leader }}" required >
+                    <label for="team_leader">team leader</label>
                 </div>
 
                 <div class="inputBox">
-                    <input type="text" name="work_title" required>
-                    <label >work-title</label>
+                    <input type="text" name="work_title" value="{{ form.work_title }}" required>
+                    <label for="work_title">work-title</label>
                 </div>
                
                 
-               <button type="submit" > submit</button>
+                <input type="submit" name="submit" id="">
                 <!-- <input type="hidden" value="{{ staff_id }}"> -->
         </form>
      
@@ -221,6 +222,7 @@
  
   {% endblock content %}
    {% block scripts %}
+   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
    <script src="{% static 'js/staff.js' %}"></script>
    {% endblock scripts %}
     
