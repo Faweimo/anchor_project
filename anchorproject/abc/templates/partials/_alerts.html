@@ -1,25 +1,63 @@
 {% if messages %}
   {% for message in messages %}
-    <div id="message"  class="container">
-       <div class="{{ message.tags}}">
+    <div id="message" data-component="dismissible-item"
+    data-type="{{ message.tags}}" data-value=" 
+    {% if messages %}
+    {% for message in messages %}
+    <p>
+        <strong >
+            {% if message.level == DEFAULT_MESAAGE_LEVELS.ERROR %}
+                Error!
+            {% else %}  
+
+                {{ message.tags|title }} !
+            {% endif %}
+         </strong>
+
+         {{ message }}
+        
+        
+    </p> 
+        
+    {% endfor %}
+    {% endif %}" class="container">
+       <!-- <div class="{{ message.tags}}">
         <p>
             <strong >
                 {% if message.level == DEFAULT_MESAAGE_LEVELS.ERROR %}
-                    Error:
+                    Error!
                 {% else %}  
 
-                    {{ message.tags|title }}:  
+                    {{ message.tags|title }} !
                 {% endif %}
              </strong>
 
              {{ message }}
             
+            
         </p> 
-           
+            -->
 
        </div>
       
     </div>
-     
-  {% endfor %}
-{% endif %}
+<!--      
+    <div
+	data-component="dismissible-item"
+	data-type="info"
+	data-value="<strong>Welcome message</strong>"
+></div>
+
+<div
+	data-component="dismissible-item"
+	data-type="success"
+	data-value="<strong>Success!</strong> You are now registered."
+></div>
+
+<div
+	data-component="dismissible-item"
+	data-type="error"
+	data-value="<strong>Error!</strong> Something went wrong. Please try again."
+></div> -->
+  <!-- {% endfor %}
+{% endif %} -->

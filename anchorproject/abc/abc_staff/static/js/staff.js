@@ -64,7 +64,3 @@ function collapse(e) {
     
 // }
 
-
-setTimeout(function(){
-    $('#message'),fadeOut('slow')
-}, 3000);

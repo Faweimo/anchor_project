@@ -10,6 +10,8 @@
 {% block links %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <link rel="stylesheet" href="{% static 'css/staff.css' %}"> 
+
+
 {% endblock links %}
    
 </head>
@@ -167,6 +169,7 @@
     
        
         {% include "partials/_alerts.html" %}
+        
         <div class="box">
          <h2>Work Logs</h2>
         <form action="{% url 'logs' %}" method="POST" class="form-log">
@@ -221,10 +224,7 @@
      <!-- end main content  -->
  
   {% endblock content %}
-   {% block scripts %}
-   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-   <script src="{% static 'js/staff.js' %}"></script>
-   {% endblock scripts %}
-    
+  
+
 </body>
 </html>

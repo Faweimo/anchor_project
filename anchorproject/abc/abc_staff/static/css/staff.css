@@ -9,6 +9,17 @@ body{
     font-family: 'Roboto', sans-serif;
    
     color: #888888;
+
+    /* background: #ddd; */
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	/* max-width: 440px;
+	margin: 0 auto; */
+	overflow: hidden;
 }
 .navbar{
     display: flex;
@@ -516,24 +527,104 @@ form {
     background: #888;
 }
 
-#message {
-
-    position: absolute;
-    top: 33%;
-    left: 35%;
-    background: rgb(107, 234, 107);
-    border-radius: 8px;
-    padding: 6px;
-    color: #fff;
-    width: 30%;
-    text-align: center;
-
-}
 form{
     display: none;
 }
 .nav-right {
     display: none;
+}
+
+
+
+.dismissible {
+	color: #222;
+	font-size: 16px;
+	line-height: 22px;
+	position: relative;
+	overflow: hidden;
+}
+
+ .dismissible span {
+    background: #F6390F;
+    border: 2px solid #F90606;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    display: block;
+    margin: 25px 531px 17px auto;
+    padding: 0px;
+    position: relative;
+    text-align: center;
+    color: wheat;
+    width: 36%;
+
+ }
+
+.dismissible button {
+	background: rgba(0, 0, 0, .4);
+	border: 0;
+	border-radius: 100%;
+	color: wheat;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	height: 24px;
+	line-height: 20px;
+	margin-top: -12px;
+	right: 10px;
+	position: absolute;
+	top: 50%;
+	width: 24px;
+}
+
+.dismissible button:focus {
+	outline: none;
+}
+
+.dismissible-error span {
+	background-color: #FF5252;
+	border-color: #FF1744;
+	color: #fff;
+}
+
+.dismissible-error button {
+	background-color: #D50000;
+    color: #FFCDD2;
+    width: 36%;
+}
+
+.dismissible-info span {
+	background-color: #64B5F6;
+	border-color: #2196F3;
+	color: #fff;
+}
+
+.dismissible-info button {
+	background-color: #2196F3;
+	color: #E3F2FD;
+}
+
+.dismissible-success span {
+    background-color: #9CCC65;
+    border-color: #7CB342;
+    color: #fff;
+    width: 36%;
+}
+
+.dismissible-success button {
+	background-color: #7CB342;
+	color: #DCEDC8;
+}
+
+.dismissible-warning span {
+	background-color: #FFA726;
+	border-color: #FB8C00;
+	color: #fff;
+}
+
+.dismissible-warning button {
+	background-color: #FB8C00;
+	color: #FFE0B2;
 }
 
 
