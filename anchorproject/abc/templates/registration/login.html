@@ -14,7 +14,10 @@
     <img src="{% static 'img/abc.png' %}" alt="logo">
     <h2>Log in</h2>
     <form action="{% url 'login' %}" method="POST" class="form-log">
-       
+      {% csrf_token %}
+
+          
+          
         
         <div class="inputBox">
             <input type="text" name="username"  required>
@@ -24,7 +27,7 @@
             <input type="password" name="password1"  required>
             <label >Password</label>
         </div> 
-         {% csrf_token %}
+        
        
         <input type="submit" name="submit" value="login">
      </form>
@@ -37,5 +40,10 @@
 {% endblock content %}  
 
 {% block scripts %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+  src="//code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 <script src="{% static 'js/login.js' %}"></script>
 {% endblock scripts %}
